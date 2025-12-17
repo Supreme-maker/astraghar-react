@@ -58,11 +58,11 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="text-center mb-12 animate-fade-in animate-float">
+      <section className="text-center mb-12">
         <h2 className="text-5xl mb-4 text-red-600 shadow-[0_0_20px_rgba(255,0,0,0.5)]">
           Welcome to AstraGhar
         </h2>
-        <p className="text-lg mb-6 animate-slide-in">
+        <p className="text-lg mb-6">
           Your premier destination for high-quality weapons and accessories
         </p>
         <Link
