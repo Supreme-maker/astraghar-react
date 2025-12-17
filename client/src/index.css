@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000, #333333);
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    perspective: 1000px; /* For 3D effects */
+}
+
+/* Custom component styles */
+@layer components {
+    .btn-primary {
+        @apply bg-red-600 text-white px-4 py-2 rounded-md transition-all duration-300 shadow-[0_0_10px_rgba(255,0,0,0.5)];
+    }
+    
+    .btn-primary:hover {
+        @apply bg-white text-black scale-105;
+    }
+    
+    .btn-secondary {
+        @apply bg-red-600 text-white px-2 py-2 rounded-md transition-all duration-300;
+    }
+    
+    .btn-secondary:hover {
+        @apply bg-white text-black scale-105;
+    }
+    
+    .product-card {
+        @apply bg-white/10 p-4 rounded-lg text-center shadow-lg transition-all duration-300;
+    }
+    
+    .product-card:hover {
+        @apply -translate-y-1 shadow-xl;
+    }
+    
+    .category-btn {
+        @apply bg-gray-800 text-white border-none px-4 py-2 cursor-pointer rounded-md transition-all duration-300;
+    }
+    
+    .category-btn.active {
+        @apply bg-red-600 shadow-[0_0_10px_rgba(255,0,0,0.5)];
+    }
+    
+    .category-btn:hover {
+        @apply scale-105;
+    }
+    
+    .btn-add-cart {
+        @apply bg-red-600 text-white border-none px-4 py-2 mt-4 cursor-pointer rounded-md transition-all duration-300 shadow-[0_0_10px_rgba(255,0,0,0.5)];
+    }
+    
+    .btn-add-cart:hover {
+        @apply bg-white text-black scale-105;
+    }
+}
+
+/* 3D Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px) rotateX(2deg); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Hide scrollbar for gallery */
+.gallery-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+

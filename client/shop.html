@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - AstraGhar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <h1 class="logo">AstraGhar</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="shop">
+            <h2>Shop Weapons</h2>
+            <p id="login-message" style="color: #ff0000; text-align: center; display: none;">You must log in to access the shop and buy guns. <a href="login.html" style="color: #00ff00;">Log In Here</a></p>
+            <div id="shop-content" style="display: none;">
+                <div class="categories">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="pistols">Pistols</button>
+                    <button class="category-btn" data-category="rifles">Rifles</button>
+                    <button class="category-btn" data-category="shotguns">Shotguns</button>
+                    <button class="category-btn" data-category="snipers">Snipers</button>
+                    <button class="category-btn" data-category="knives">Knives</button>
+                </div>
+                <div class="product-grid">
+                    <!-- Product Cards -->
+                    <div class="product-card" data-category="pistols">
+                        <img src="images/pistol.jpg" alt="Stylized Pistol">
+                        <h3>Plasma Pistol</h3>
+                        <p>A high-tech energy weapon for precision strikes.</p>
+                        <ul class="gun-details">
+                            <li><strong>Caliber:</strong> 9mm</li>
+                            <li><strong>Origin:</strong> Futuristic Labs</li>
+                            <li><strong>Features:</strong> Laser sight, energy cell battery</li>
+                        </ul>
+                        <span class="price">৳54,999</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="pistols">
+                        <img src="images/revolver.jpg" alt="Revolver">
+                        <h3>Classic Revolver</h3>
+                        <p>Reliable six-shooter for old-school action.</p>
+                        <ul class="gun-details">
+                            <li><strong>Caliber:</strong> .38 Special</li>
+                            <li><strong>Origin:</strong> USA</li>
+                            <li><strong>Features:</strong> 6-round cylinder, manual hammer</li>
+                        </ul>
+                        <span class="price">৳38,499</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="rifles">
+                        <img src="images/rifle.jpg" alt="Rifle">
+                        <h3>Assault Rifle</h3>
+                        <p>Powerful and versatile for any battlefield.</p>
+                        <ul class="gun-details">
+                            <li><strong>Caliber:</strong> 5.56mm</li>
+                            <li><strong>Origin:</strong> Military Grade</li>
+                            <li><strong>Features:</strong> 30-round magazine, optic ready</li>
+                        </ul>
+                        <span class="price">৳98,999</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="rifles">
+                        <img src="images/ak47.jpg" alt="AK-47">
+                        <h3>AK-47 Assault Rifle</h3>
+                        <p>Iconic and durable for heavy combat.</p>
+                        <ul class="gun-details">
+                            <li><strong>Caliber:</strong> 7.62mm</li>
+                            <li><strong>Origin:</strong> Russia</li>
+                            <li><strong>Features:</strong> 30-round magazine, rugged design</li>
+                        </ul>
+                        <span class="price">৳87,999</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="shotguns">
+                        <img src="images/doublebarrelshotgun.jpg" alt="Double Barrel Shotgun">
+                        <h3>Double Barrel Shotgun</h3>
+                        <p>Classic scattergun for close-range power.</p>
+                        <ul class="gun-details">
+                            <li><strong>Caliber:</strong> 12 Gauge</li>
+                            <li><strong>Origin:</strong> Traditional Hunts</li>
+                            <li><strong>Features:</strong> Double barrels, break-action</li>
+                        </ul>
+                        <span class="price">৳65,999</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="shotguns">
+                        <img src="images/pumpshotgun.jpg" alt="Pump Shotgun">
+                        <h3>Pump Action Shotgun</h3>
+                        <p>Fast-reload beast for tactical ops.</p>
+                        <ul class="gun-details">
+                            <li><strong>Caliber:</strong> 12 Gauge</li>
+                            <li><strong>Origin:</strong> USA</li>
+                            <li><strong>Features:</strong> 8-round tube, pump mechanism</li>
+                        </ul>
+                        <span class="price">৳71,499</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="snipers">
+                        <img src="images/modernsnipers.jpg" alt="Modern Sniper">
+                        <h3>Modern Sniper Rifle</h3>
+                        <p>Long-range precision with advanced optics.</p>
+                        <ul class="gun-details">
+                            <li><strong>Caliber:</strong> .308 Win</li>
+                            <li><strong>Origin:</strong> Tactical Forces</li>
+                            <li><strong>Features:</strong> 10x scope, bipod, suppressor ready</li>
+                        </ul>
+                        <span class="price">৳142,999</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="snipers">
+                        <img src="images/sniperrifleblack.jpg" alt="Sniper Rifle Black">
+                        <h3>Black Ops Sniper</h3>
+                        <p>Stealthy and lethal for covert missions.</p>
+                        <ul class="gun-details">
+                            <li><strong>Caliber:</strong> .338 Lapua</li>
+                            <li><strong>Origin:</strong> Special Ops</li>
+                            <li><strong>Features:</strong> Night vision, integrated silencer</li>
+                        </ul>
+                        <span class="price">৳164,999</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="knives">
+                        <img src="images/combatknife.jpg" alt="Combat Knife">
+                        <h3>Combat Knife</h3>
+                        <p>Sharp and durable for close-quarters combat.</p>
+                        <ul class="gun-details">
+                            <li><strong>Blade Length:</strong> 7 inches</li>
+                            <li><strong>Origin:</strong> Military Issue</li>
+                            <li><strong>Features:</strong> Serrated edge, sheath included</li>
+                        </ul>
+                        <span class="price">৳16,499</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product-card" data-category="knives">
+                        <img src="images/katana.jpg" alt="Katana">
+                        <h3>Samurai Katana</h3>
+                        <p>Elegant blade with legendary sharpness.</p>
+                        <ul class="gun-details">
+                            <li><strong>Blade Length:</strong> 28 inches</li>
+                            <li><strong>Origin:</strong> Japan</li>
+                            <li><strong>Features:</strong> Folded steel, traditional handle</li>
+                        </ul>
+                        <span class="price">৳32,999</span>
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 AstraGhar. All rights reserved. | <a href="about.html">About Us</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
