@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, AlertCircle } from 'lucide-react';
-import axiosInstance from '../utils/axiosConfig';
+import { ShoppingCart, AlertCircle, ShoppingBag } from 'lucide-react';
+import { useCart } from '../context/CartContext';
+import ContactDialog from '../components/ContactDialog';
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showContactDialog, setShowContactDialog] = useState(false);
+  const { addToCart, cartItems, fetchCart } = useCart();
   const [products] = useState([
     {
       id: 1,
@@ -149,40 +152,54 @@ const Shop = () => {
   ];
 
   useEffect(() => {
-    // Check if user is logged in (you can implement this with localStorage or API call)
     const checkLoginStatus = async () => {
       try {
-        // Example: Check authentication status
         const token = localStorage.getItem('token');
         if (token) {
           setIsLoggedIn(true);
+          await fetchCart();
+        } else {
+          setIsLoggedIn(false);
         }
       } catch (error) {
         console.error('Error checking login status:', error);
       }
     };
     checkLoginStatus();
-  }, []);
+  }, [fetchCart]);
 
   const filteredProducts =
     selectedCategory === 'all'
       ? products
       : products.filter((product) => product.category === selectedCategory);
 
-  const handleAddToCart = async (productId) => {
+  const handleAddToCart = async (product) => {
     if (!isLoggedIn) {
       alert('You must log in to add items to cart.');
       return;
     }
 
     try {
-      // Example API call with axios
-      await axiosInstance.post('/cart/add', { productId });
+      await addToCart(product);
       alert('Item added to cart!');
     } catch (error) {
       console.error('Error adding to cart:', error);
-      alert('Failed to add item to cart. Please try again.');
+      alert(error.response?.data?.message || 'Failed to add item to cart. Please try again.');
     }
+  };
+
+  const handleBuyClick = () => {
+    if (!isLoggedIn) {
+      alert('You must log in to buy products.');
+      return;
+    }
+
+    if (cartItems.length === 0) {
+      alert('Your cart is empty. Please add items to cart first.');
+      return;
+    }
+
+    setShowContactDialog(true);
   };
 
   return (
@@ -236,7 +253,7 @@ const Shop = () => {
                 </ul>
                 <span className="text-red-600 font-bold text-lg block mb-4">{product.price}</span>
                 <button
-                  onClick={() => handleAddToCart(product.id)}
+                  onClick={() => handleAddToCart(product)}
                   className="btn-add-cart w-full flex items-center justify-center gap-2"
                 >
                   <ShoppingCart size={18} />
@@ -245,8 +262,27 @@ const Shop = () => {
               </div>
             ))}
           </div>
+
+          {cartItems.length > 0 && (
+            <div className="mt-8 text-center">
+              <button
+                onClick={handleBuyClick}
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-md transition-all duration-300 shadow-[0_0_15px_rgba(0,255,0,0.5)] flex items-center justify-center gap-2 mx-auto text-lg font-bold"
+              >
+                <ShoppingBag size={24} />
+                Buy All ({cartItems.length} items)
+              </button>
+            </div>
+          )}
         </>
       )}
+
+      <ContactDialog
+        isOpen={showContactDialog}
+        onClose={() => {
+          setShowContactDialog(false);
+        }}
+      />
     </div>
   );
 };
